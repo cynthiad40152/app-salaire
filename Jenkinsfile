@@ -1,6 +1,6 @@
 node {
         stage('checkout') {
-            git 'https://github.com/cynthiad40152/app-salaire/*main'
+            git 'https://github.com/cynthiad40152/app-salaire'
         }
 
         
