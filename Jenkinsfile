@@ -1,5 +1,4 @@
 node {
-    stages {
         stage('checkout') {
             git 'https://github.com/cynthiad40152/app-salaire'
         }
@@ -13,7 +12,6 @@ node {
           inventory: 'inventaire'
  )
  }
-}
         
 }
 
