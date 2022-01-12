@@ -1,7 +1,7 @@
 ---
 # tasks file for apache
 
-- hosts: 192.168.1.39
+- hosts: webservers
   tasks:
   - name: installation du serveur apache
     yum:

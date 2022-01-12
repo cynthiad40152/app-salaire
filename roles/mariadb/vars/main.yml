@@ -3,7 +3,7 @@
 
 mysql_user: "admin"
 mysql_password: "secret"
-mysql_dbname: "blog"
+mysql_dbname: "db.cynthia.form"
 db_host: "192.168.1.39"
 webserver_host: "192.168.1.39"
 root_mariadb_password: "root"
