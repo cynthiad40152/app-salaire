@@ -4,10 +4,15 @@ node {
                  sh "yum install -y ansible "
 
 }
-        stage('ansible') {
-                 sh "ansible-playbook main.yml -i inventaire --user jenkins --key-file ~/.ssh/id_rsa "
-
-}
+        stage('Ansible') {
+    ansiblePlaybook (
+    colorized: true, 
+    become: true, 
+    playbook: 'main.yaml',
+    inventory: 'inventaire',
+    disableHostKeyChecking: true
+    )
+  }
 
  }
 
