@@ -1,0 +1,13 @@
+---
+
+#tasks file for apache
+
+- hosts: 192.168.1.39
+  tasks:
+  - name: installation du serveur apache
+    yum:
+     name: "{{ item }}"
+     state: present
+    loop:
+    - httpd
+    - epel-release
