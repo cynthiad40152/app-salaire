@@ -1,10 +1,12 @@
 node {
         stage('ansible') {
-          ansiblePlaybook (
-          colorized: true, 
-          become: true, 
-          playbook: 'main.yaml',
-          inventory: 'inventaire'
+          steps {
+                 
+             
+               
+               sh "ansible-playbook main.yml -i inventaire --user jenkins --key-file ~/.ssh/id_rsa "
+
+}
  )
  }
         
