@@ -1,0 +1,44 @@
+---
+# tasks file for mariadb
+
+- hosts: db
+
+  become: yes
+
+  vars_files:
+   - main.yaml
+
+  tasks:
+  - name: ajout du depot epel-release
+    yum: 
+     name: epel-release
+     state: present
+
+  - name: installation mysql
+    yum:
+     name:
+      - mariadb-server
+      - python2-PyMySQL
+     state: present
+
+  - name: creation fichier client mariadb
+    copy:
+     dest: /root/my.cnf
+     content: |
+      [client]
+      user=root
+      password={{ root_mariadb_password }}
+
+  - name: upload sql table config
+    template: 
+     src: table.sql.j2
+     dest: /tmp/table.sql
+
+  - name: insert table in mariadb
+    mysql_db:
+     name: "{{ mysql_dbname }}"
+     state: present
+     login_user: root
+     login_password: ""
+     state: import
+     target: /tmp/table.sql

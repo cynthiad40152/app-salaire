@@ -1,0 +1,12 @@
+---
+# handlers file for mariadb
+
+- name: start_mariadb
+  systemd: 
+      name: mariadb-server
+      state: started
+
+- name: restart_mariadb
+  systemd: 
+      name: mariadb-server
+      state: restarted
